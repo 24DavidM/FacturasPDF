@@ -5,7 +5,8 @@
     "express": "^5.1.0",
     "install": "^0.13.0",
     "mongoose": "^8.15.1",
-    "multer": "^2.0.1"
+    "multer": "^2.0.1",
+    "pdf-parse": "^1.1.1"
   },
   "name": "backend-factura",
   "version": "1.0.0",
