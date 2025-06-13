@@ -1,9 +1,15 @@
-import connection from "./config/db.js";
-import app from "./server.js";
+import mongoose from 'mongoose';
+import app from './server.js';
 
-connection()
-app.listen(app.get('port'),()=>{
-    console.log("Server activado")
+const mongoURL = process.env.MONGO_URL || 'mongodb://localhost:27017/tu_basedatos';
 
-})
-
+mongoose.connect(mongoURL)
+  .then(() => {
+    console.log('MongoDB conectado');
+    app.listen(app.get('port'), () => {
+      console.log(`Servidor escuchando en puerto ${app.get('port')}`);
+    });
+  })
+  .catch((err) => {
+    console.error('Error conectando a MongoDB:', err);
+  });
